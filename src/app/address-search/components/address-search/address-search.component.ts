@@ -18,7 +18,6 @@ export class AdressSearchComponent implements OnInit {
   public getAdressToSearch(street: string): void {
     this.addressService.search(street).subscribe((data) => {
       this.addressToSearch = data;
-      console.log(this.addressToSearch);
     });
   }
 }
