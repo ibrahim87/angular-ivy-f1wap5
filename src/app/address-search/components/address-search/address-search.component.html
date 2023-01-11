@@ -1,0 +1,29 @@
+<input type="text" #address />
+<button (click)="getAdressToSearch(address.value)">search</button>
+<div *ngIf="addressToSearch">
+  <ul>
+    <li>type : {{ addressToSearch.type }}</li>
+    <li>version: {{ addressToSearch.version }}</li>
+    <ul *ngFor="let feature of addressToSearch?.features">
+      Feature :
+      <li>
+        {{ feature.type }}
+      </li>
+      <li>
+        {{ feature.geometry.type }}
+      </li>
+      <ul>
+        <li>{{ feature?.properties?.label }}</li>
+        <li>{{ feature?.properties.score }}</li>
+        <li>{{ feature?.properties.housenumber }}</li>
+        <li>{{ feature?.properties.id }}</li>
+        <li>{{ feature?.properties?.type }}</li>
+        <li>{{ feature?.properties.postcode }}</li>
+      </ul>
+    </ul>
+
+    <li>Attribution : {{ addressToSearch.attribution }}</li>
+    <li>Query : {{ addressToSearch.query }}</li>
+    <li>Limit: {{ addressToSearch.limit }}</li>
+  </ul>
+</div>
